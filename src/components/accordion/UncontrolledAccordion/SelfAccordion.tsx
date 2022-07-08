@@ -4,7 +4,7 @@ type AccordionPropsType = {
     titleValue: string
 }
 
-function SelfAccordion(props: AccordionPropsType) {
+export function SelfAccordion(props: AccordionPropsType) {
 
     let [collapsed, setCollapsed] = useState(false)
 
@@ -37,4 +37,4 @@ function AccordionBody() {
         </ul>)
 }
 
-export default SelfAccordion
+
