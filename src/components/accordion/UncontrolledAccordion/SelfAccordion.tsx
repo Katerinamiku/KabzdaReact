@@ -1,18 +1,23 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
+import {reducer, TOGGLE_CONSTANT} from "./reducer";
 
 type AccordionPropsType = {
     titleValue: string
 }
 
 export function SelfAccordion(props: AccordionPropsType) {
-
-    let [collapsed, setCollapsed] = useState(false)
+    let [state, dispatch] = useReducer(reducer, {collapsed: false} )
+    // let [collapsed, setCollapsed] = useState(false)
+    // return <div>
+    //     <AccordionTitle title={props.titleValue}
+    //                     onClickHandler={() => setCollapsed(!collapsed)}
+    //     />
 
     return <div>
         <AccordionTitle title={props.titleValue}
-                        onClickHandler={()=>setCollapsed(!collapsed)}
+                        onClickHandler={() => dispatch({type: TOGGLE_CONSTANT})}
         />
-        {!collapsed && <AccordionBody/>}
+        {!state.collapsed && <AccordionBody/>}
     </div>
 }
 
@@ -23,7 +28,9 @@ type AccordionTitlePropsType = {
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     return (
-        <h2 onClick={() => {props.onClickHandler()}}>--{props.title}--</h2>
+        <h2 onClick={() => {
+            props.onClickHandler()
+        }}>--{props.title}--</h2>
     )
 }
 
