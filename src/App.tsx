@@ -30,16 +30,17 @@ function App(props: any) {
                        items={items}
                        collapsed={accordeonCollapsed}
                        onCollapse={() => {setAccordeonCollapsed(!accordeonCollapsed)}}
-                       onClick={}
+                       onClick={()=>alert('111')}
             />
             <Rating value={ratingValue} onClick={setRatingValue}/>
 
 
-            <Select titleValue={'MySelect'}
-                    items={items}
-                    collapsed={selectCollapsed}
-                    onCollapse={()=>{setSelectCollapsed(!selectCollapsed)}}
-                    onClick={}
+            {/*<Select titleValue={'MySelect'}*/}
+            {/*        items={items}*/}
+            {/*        collapsed={selectCollapsed}*/}
+            {/*        onCollapse={()=>{setSelectCollapsed(!selectCollapsed)}}*/}
+            {/*        onClick={()=>alert('111')}*/}
+            {/*/>*/}
         </div>
     );
 }
